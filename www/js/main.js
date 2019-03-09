@@ -33,12 +33,10 @@ var app = {
         singer: 'Stone Sour',
         volume: 0.5,
         img: './img/stoneSour.jpg'
-        
         },
     ],
-
     media:null,
-    stt:"",
+    stt:-2,
     status:{
         '0':'MEDIA_NONE',
         '1':'MEDIA_STARTING',
@@ -58,9 +56,7 @@ var app = {
         document.addEventListener(isReady, ()=>{
             app.buildList();
             app.addListeners();
-
-            document.querySelectorAll(".mus").addEventListener('click', app.navigate);
-            
+           
         })
     },
     buildList: ()=>{
@@ -74,8 +70,7 @@ var app = {
            li.dataset.target = "playnow";
 
            li.setAttribute("data-id", tracks.id);
-           
-             
+                      
            img.setAttribute("src", tracks.img);
            img.classList.add("music-img");
            li.appendChild(img);
@@ -101,8 +96,7 @@ var app = {
                  item.forEach( i => { 
             i.addEventListener('click', app.navigate);
             i.addEventListener('click', app.play)
-                   
-                     });
+            });
         
     },
 
@@ -111,7 +105,6 @@ var app = {
         
         app.index= id;
         
-
         if(app.stt == 1 || app.stt == 2) {
             
              app.media.pause();
